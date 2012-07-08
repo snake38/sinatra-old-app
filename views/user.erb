@@ -1,0 +1,11 @@
+<% if @user %>
+<h3>User - <%= @user.username %></h3>
+E-mail: <b><%= @user.mail %></b><br/>
+Role: <b><%= @user.role %></b><br />
+Register date: <b><%= @user.registertime %></b>
+<% if logged? %>
+<p><a href="delete">Delete user</a></p>
+<% end %>
+<% else %>
+<h3>User not found!</h3>
+<% end %>

@@ -1,0 +1,125 @@
+    <html>
+       <head>
+          <title><%= @title %></title>
+       </head>
+       <body>
+          <style>
+            body {
+               margin: 0 auto;
+               background-color: silver;
+            }
+            .text {
+                display: inline-block;
+                width: 150px;
+                font-weight: bold;
+                text-align: right;
+            }
+            .field {
+               margin: 0 0 4px 0;
+            }
+            #topbar {
+               background-color: gray;
+               margin-left: 0;
+               padding: 0;
+               width: 100%;
+               height: 54px;
+               line-height: 20px;
+               position: fixed;
+               top: 0;
+            }
+            #content {
+               margin-top: 70px;
+               margin-left: 35px;
+               margin-right: 35px;
+            }
+		      ul.topmenu {
+		         padding: 0;
+		         margin: 10px 10px 0 10px;
+		      }
+            ul.topmenu li{
+		         float: left;
+               list-style: none;
+			      margin: 0 5px 0 0;
+               display: inline;
+               padding: 7px;
+               background-color: black;
+               border-radius: 5px;
+               color: white;
+               text-decoration: none;
+               opacity: 0.7;
+            }
+            ul.topmenu li a, ul.topmenu li a:hover, ul.topmenu li a:visited {
+               text-decoration: none;
+               color: white;
+            }
+            ul.topmenu li.right {
+               float: right;
+			      margin: 0 0 0 5px;
+            }
+		      .clearfix:after {
+	            content: ".";
+	            display: block;
+	            clear: both;
+	            visibility: hidden;
+	            line-height: 0;
+	            height: 0;
+            }
+            #news {
+              background-color: gray;
+              border-radius: 15px;
+              width: auto;
+            }
+            
+            #news .news-title {
+              background-color: black;
+              line-height: 35px;
+              color: white;
+              text-align: center;
+            }
+            
+            #news .news-title-right {
+              float: right;
+              margin-right: 5px;
+            }
+            
+            #news .news-title-right a, .news-title-right a:hover, .news-title-right a:visited {
+				text-decoration: none;
+				color: white;
+            }
+            
+            #news .news-text {
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+            
+            #news .news-author {
+              margin-left: 10px;
+              line-height: 25px;
+            }
+          </style>
+     
+          <div id="topbar" class="clearfix">
+             <ul class="topmenu">
+                <li><img width="20px" src="http://www.comperia.pl/_img/centrum_doradcy/icon_mobile_20x20.png"/></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/news/">News</a></li>
+                <li><a href="/apps/">Apps</a></li>
+                <li><a href="/users/">Users</a></li>
+                <li><a href="/forum/">Forum</a></li>
+               
+                <% if logged? %>
+                <li class="right"><a href="/logout/">Logout [<%= session["user_name"] %>]</a></li>
+                <% else %>
+                <li class="right"><a href="/register/">Sign up</a></li>
+                <li class="right"><a href="/login/">Sign in</a></li>
+                <% end %>
+                
+             </ul>
+          </div>
+     
+          <div id="content">
+            <%= yield %>
+          </div>
+
+       </body>
+    </html>

@@ -1,0 +1,12 @@
+<div id="news">
+<div class="news-title"><h3><%= @news.title %><% if logged? %><div class="news-title-right">[<a href="delete/">Delete news</a>]</div><% end %></h3></div>
+<div class="news-text">
+<%= @news.text %>
+</div>
+<hr/>
+<div class="news-author"><b>Posted by <a href="/user/<%= @author.id %>/"><%= @author.username %></a> on <%= @news.date %></div>
+</div>
+
+<div id="comments">
+  
+</div>
